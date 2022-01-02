@@ -1,0 +1,29 @@
+https://practice.geeksforgeeks.org/problems/print-anagrams-together/1/#
+
+class Solution{
+  public:
+    vector<vector<string> > Anagrams(vector<string>& string_list) {
+        
+        map<string, vector<string>> mp;
+        for(string temp : string_list)
+        {
+            string temp2 = temp;
+            sort(temp2.begin(), temp2.end());
+            mp[temp2].push_back(temp);
+        }
+        vector<vector<string>> ans (mp.size());
+        int idx=0;
+        for(auto x : mp)
+        {
+            auto temp3 = x.second;
+            for(int i=0; i<temp3.size(); i++)
+            {
+                ans[idx].push_back(temp3[i]);
+                //cout<<temp3[i]<<endl;
+            }
+            idx++;
+        }
+        return ans;
+        
+    }
+};
