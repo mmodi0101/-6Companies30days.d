@@ -1,0 +1,30 @@
+string encode(string src)
+{     
+  //Your code here 
+  int count=0;
+  string ans="";
+  for(int i=1;i<src.size();i++)
+  {
+      if(src[i-1]==src[i])
+      {
+          count++;
+      }
+      else    
+      {
+          count++;
+          ans=ans+src[i-1]+to_string(count);
+          count=0;
+      }
+  }
+  if(src[src.size()-2] == src[src.size()-1])
+      {
+          count++;
+          ans=ans+src[src.size()-1]+to_string(count);
+      }
+      else
+      {
+          ans=ans+src[src.size()-1]+"1";
+      }
+  return ans;
+}     
+ 
