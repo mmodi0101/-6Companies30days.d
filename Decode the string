@@ -1,0 +1,50 @@
+string decodedString(string s){
+        // code here
+        string num = "";
+        int n;
+        string temp="";
+        string temp2="";
+        stack<char> st;
+        int p = 0;
+        while(!st.empty())
+        {
+            if(s[p]==']')
+            {
+                while(st.top() != '[')
+                {
+                    temp=st.top()+temp;
+                    st.pop();
+                }
+                st.pop();
+                while(isdigit(st.top))
+                {
+                    num=st.top()+num;
+                    st.pop();
+                }
+                n=stoi(num);
+                for(int i=1;i<=n;i++)
+                {
+                    temp2=temp2+temp;
+                }
+                if(st.empty())
+                {
+                    break;
+                }
+                for(int i=0;i<temp2.size();i++)
+                {
+                    st.push(temp2[i]);
+                }
+                p++;
+                temp="";
+                temp2="";
+                num="";
+                
+            }
+            else
+            {
+                st.push(s[p]);
+                p++;
+            }
+        }
+        return temp2;
+    }
