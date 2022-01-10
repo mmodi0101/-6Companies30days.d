@@ -1,0 +1,14 @@
+Node * deSerialize(vector<int> &A)
+    {
+      //Your code here
+      if(idx >= A.size() || A[idx]==NULL){
+          idx++;
+      return NULL;
+      }
+      Node *root = new Node(A[idx++]);
+      root->left = deSerialize(A);
+      
+      root->right = deSerialize(A);
+      
+      return root;
+    }
